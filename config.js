@@ -6,7 +6,7 @@ const config = {
         database: 'fe_exam'
     },
     server: {
-        port: 3000,
+        port: 3001,
         view: 'ejs'
     },
     session: {
