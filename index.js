@@ -85,6 +85,7 @@ let createRecord = (req) => {
 };
 
 app.get('/get',(req,res)=>{
+	res.set('Access-Control-Allow-Origin', 'http://localhost:3000');
 	getRecords().then((result)=>{
 		res.json(result);
 	})
@@ -94,6 +95,7 @@ app.get('/get',(req,res)=>{
 });
 
 app.post('/update',(req,res)=>{
+	res.set('Access-Control-Allow-Origin', 'http://localhost:3000');
 	updateRecords(req).then((result)=>{
 		//console.log({result});
 		res.json({
@@ -106,6 +108,7 @@ app.post('/update',(req,res)=>{
 });
 
 app.delete('/delete/:id',(req,res)=>{
+	res.set('Access-Control-Allow-Origin', 'http://localhost:3000');
 	deleteRecords(req.params.id).then((result)=>{
 		res.json({
 			status: (result.affectedRows > 0) ? 'Record Deletion Successful' : 'Record Deletion Failed'
@@ -117,6 +120,7 @@ app.delete('/delete/:id',(req,res)=>{
 });
 
 app.put('/create',(req,res)=>{
+	res.set('Access-Control-Allow-Origin', 'http://localhost:3000');
 	createRecord(req).then((result)=>{
 		res.json({
 			status: (result.affectedRows > 0) ? 'Record Creation Successful' : 'Record Creation Failed'
